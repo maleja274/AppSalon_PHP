@@ -78,15 +78,11 @@ async function mostrarServicios() {
         const url = 'http://localhost:3000/servicios.php';
 
         const resultado = await fetch(url);
-  
         const db = await resultado.json();
-        console.log(db);
+        const {servicios} = db;
 
-        // const { servicios} = db;
-
-        db.forEach( servicio => {
-
-            const { id, nombre, precio } = servicio;
+    db.forEach( servicio => {
+        const { id, nombre, precio } = servicio;
 
             const nombreServicio = document.createElement('P');
             nombreServicio.classList.add('nombre-servicio');
